@@ -1732,6 +1732,7 @@ function initCourseMenu() {
   }
 
   const panel = menu.querySelector(".course-menu-panel");
+  const menuBody = menu.querySelector(".course-menu-body");
   const closeButton = menu.querySelector(".course-menu-close");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let isOpen = false;
@@ -1759,6 +1760,19 @@ function initCourseMenu() {
       if (closeButton) {
         closeButton.focus({ preventScroll: true });
       }
+      if (menuBody) {
+        const currentItem = menu.querySelector(".course-menu-item.is-current");
+        if (currentItem) {
+          const bodyRect = menuBody.getBoundingClientRect();
+          const itemRect = currentItem.getBoundingClientRect();
+          menuBody.scrollTop = Math.max(
+            0,
+            menuBody.scrollTop + itemRect.top - bodyRect.top - menuBody.clientHeight / 2 + itemRect.height / 2
+          );
+        } else {
+          menuBody.scrollTop = 0;
+        }
+      }
     });
   };
 
@@ -1768,10 +1782,10 @@ function initCourseMenu() {
     }
     isOpen = false;
     menu.classList.remove("is-open");
-    document.body.classList.remove("course-menu-open");
     setExpanded(false);
     closeTimer = window.setTimeout(() => {
       menu.hidden = true;
+      document.body.classList.remove("course-menu-open");
       if (restoreFocus && lastTrigger && typeof lastTrigger.focus === "function") {
         lastTrigger.focus({ preventScroll: true });
       }
@@ -1829,6 +1843,11 @@ function initCourseMenu() {
 
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
+    if (!panel.contains(document.activeElement)) {
+      event.preventDefault();
+      first.focus();
+      return;
+    }
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last.focus();

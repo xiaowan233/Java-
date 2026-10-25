@@ -347,6 +347,14 @@ code {
   gap: 5px;
 }
 
+.home-page .header-progress {
+  display: none;
+}
+
+.home-page .header-nav {
+  margin-left: auto;
+}
+
 .header-nav > a {
   padding: 8px 11px;
   border-radius: 999px;
@@ -1393,6 +1401,11 @@ html[data-theme="night"] .button-primary {
   gap: 32px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--line);
+}
+
+.course-dashboard--entry .dashboard-top {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .dashboard-progress {
@@ -5637,7 +5650,8 @@ body.course-menu-open {
     gap: 8px;
   }
 
-  .lesson-after a {
+  .lesson-after a,
+  .lesson-after-link {
     white-space: normal;
   }
 

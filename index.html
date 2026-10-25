@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="小玩同学的 Java 学习站：18 个分级关卡、18 个代码任务，零基础手把手入门，同时学会 CSS 语法。">
+  <meta name="description" content="小玩同学的Java学习站：18 个分级关卡、18 个代码任务，零基础手把手入门，同时学会 CSS 语法。">
   <meta name="theme-color" content="#f5efe3">
   <title>小玩同学的Java学习站｜18 关，从零到完整项目</title>
   <script>
@@ -17,11 +17,11 @@
     }());
   </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23173b2b'/%3E%3Ctext x='50' y='71' font-family='monospace' font-size='62' font-weight='bold' text-anchor='middle' fill='%23e76f3c'%3EJ%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=12">
-  <script src="chapters.js?v=12" defer></script>
-  <script src="script.js?v=12" defer></script>
+  <link rel="stylesheet" href="styles.css?v=13">
+  <script src="chapters.js?v=13" defer></script>
+  <script src="script.js?v=13" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">跳到正文</a>
   <noscript><div class="noscript-note">这页的 18 关内容和互动练习需要 JavaScript。请在浏览器里启用 JavaScript，或换一个现代浏览器打开。</div></noscript>
   <div class="reading-progress" aria-hidden="true"><span id="readingBar"></span></div>
@@ -200,243 +200,6 @@
           <pre><span class="shell-prompt">$</span> java -version
 <span class="shell-prompt">$</span> javac -version
 <span class="shell-ok">javac 21.0.5</span></pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ COURSE ENTRY ============ -->
-    <section class="course-levels section-shell" id="course">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker"><span>COURSE MAP</span> 学习路线</p>
-          <h2>18 关，都收进课程菜单里。</h2>
-        </div>
-        <p class="section-side">首页不再铺满关卡。点右上角的「课程目录」，六个阶段、18 个关卡会从右侧展开，随时跳关或复习。这里只留下你的进度和继续入口。</p>
-      </div>
-
-      <div class="course-dashboard">
-        <div class="dashboard-top">
-          <div class="dashboard-progress">
-            <div class="dashboard-progress-head">
-              <span>YOUR PROGRESS</span>
-              <strong id="homeProgress">0 / 18 关</strong>
-            </div>
-            <div class="dashboard-track" aria-hidden="true"><span id="homeProgressBar"></span></div>
-            <p id="homeProgressNote">从第 1 关开始，先把第一个程序跑起来。</p>
-            <button class="dashboard-menu-link" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">
-              打开完整课程目录 <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-          <a class="dashboard-cta" id="continueBtn" href="lesson.html?level=01">
-            <span id="continueLabel">从第 1 关开始</span>
-            <span class="dashboard-cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        <div class="phase-groups" hidden>
-          <section class="phase-group" aria-labelledby="phase-title-1">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 01</span>
-              <h3 id="phase-title-1">语法地基</h3>
-              <span class="phase-group-count" data-phase-count="1">0 / 5</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=01" data-level-card="1">
-                <span class="level-index">01</span>
-                <span class="level-info">
-                  <strong>Hello, Java</strong>
-                  <small><span>类 · main · 输出</span><span class="level-css">CSS 规则</span><span class="level-minutes">25 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=02" data-level-card="2">
-                <span class="level-index">02</span>
-                <span class="level-info">
-                  <strong>变量与类型</strong>
-                  <small><span>变量 · 类型 · 拼接</span><span class="level-css">CSS 变量</span><span class="level-minutes">25 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=03" data-level-card="3">
-                <span class="level-index">03</span>
-                <span class="level-info">
-                  <strong>输入与运算符</strong>
-                  <small><span>Scanner · 算术 · 类型转换</span><span class="level-css">CSS 盒模型</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=04" data-level-card="4">
-                <span class="level-index">04</span>
-                <span class="level-info">
-                  <strong>条件判断</strong>
-                  <small><span>if / else · 比较 · 逻辑</span><span class="level-css">文字排版</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=05" data-level-card="5">
-                <span class="level-index">05</span>
-                <span class="level-info">
-                  <strong>循环</strong>
-                  <small><span>for · while · break</span><span class="level-css">hover 过渡</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
-
-          <section class="phase-group" aria-labelledby="phase-title-2">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 02</span>
-              <h3 id="phase-title-2">组织代码</h3>
-              <span class="phase-group-count" data-phase-count="2">0 / 2</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=06" data-level-card="6">
-                <span class="level-index">06</span>
-                <span class="level-info">
-                  <strong>数组</strong>
-                  <small><span>索引 · 遍历 · 增强 for</span><span class="level-css">Flexbox</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=07" data-level-card="7">
-                <span class="level-index">07</span>
-                <span class="level-info">
-                  <strong>方法</strong>
-                  <small><span>参数 · 返回值 · 作用域</span><span class="level-css">Grid</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
-
-          <section class="phase-group" aria-labelledby="phase-title-3">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 03</span>
-              <h3 id="phase-title-3">面向对象</h3>
-              <span class="phase-group-count" data-phase-count="3">0 / 3</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=08" data-level-card="8">
-                <span class="level-index">08</span>
-                <span class="level-info">
-                  <strong>类与对象</strong>
-                  <small><span>字段 · 构造方法 · this</span><span class="level-css">class 选择器</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=09" data-level-card="9">
-                <span class="level-index">09</span>
-                <span class="level-info">
-                  <strong>封装与继承</strong>
-                  <small><span>private · extends · 多态</span><span class="level-css">层叠优先级</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=10" data-level-card="10">
-                <span class="level-index">10</span>
-                <span class="level-info">
-                  <strong>集合</strong>
-                  <small><span>ArrayList · HashMap · 泛型</span><span class="level-css">响应式</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
-
-          <section class="phase-group" aria-labelledby="phase-title-4">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 04</span>
-              <h3 id="phase-title-4">做出东西</h3>
-              <span class="phase-group-count" data-phase-count="4">0 / 2</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=11" data-level-card="11">
-                <span class="level-index">11</span>
-                <span class="level-info">
-                  <strong>异常与调试</strong>
-                  <small><span>try-catch · finally · 调试</span><span class="level-css">关键帧动画</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=12" data-level-card="12">
-                <span class="level-index">12</span>
-                <span class="level-info">
-                  <strong>待办清单项目</strong>
-                  <small><span>综合项目 · 实战</span><span class="level-css">主题变量</span><span class="level-minutes">50 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
-
-          <section class="phase-group" aria-labelledby="phase-title-5">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 05</span>
-              <h3 id="phase-title-5">进阶表达</h3>
-              <span class="phase-group-count" data-phase-count="5">0 / 4</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=13" data-level-card="13">
-                <span class="level-index">13</span>
-                <span class="level-info">
-                  <strong>字符串与文本</strong>
-                  <small><span>String · trim · equals</span><span class="level-css">文本省略</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=14" data-level-card="14">
-                <span class="level-index">14</span>
-                <span class="level-info">
-                  <strong>接口与多态</strong>
-                  <small><span>interface · implements</span><span class="level-css">伪元素</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=15" data-level-card="15">
-                <span class="level-index">15</span>
-                <span class="level-info">
-                  <strong>枚举与 switch</strong>
-                  <small><span>enum · 箭头 switch</span><span class="level-css">sticky 定位</span><span class="level-minutes">30 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=16" data-level-card="16">
-                <span class="level-index">16</span>
-                <span class="level-info">
-                  <strong>泛型与 Set</strong>
-                  <small><span>泛型 · HashSet · 去重</span><span class="level-css">clamp 函数</span><span class="level-minutes">35 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
-
-          <section class="phase-group" aria-labelledby="phase-title-6">
-            <div class="phase-group-head">
-              <span class="phase-group-no">阶段 06</span>
-              <h3 id="phase-title-6">文件与项目</h3>
-              <span class="phase-group-count" data-phase-count="6">0 / 2</span>
-            </div>
-            <div class="level-grid">
-              <a class="level-card" href="lesson.html?level=17" data-level-card="17">
-                <span class="level-index">17</span>
-                <span class="level-info">
-                  <strong>文件读写</strong>
-                  <small><span>Path · Files · IOException</span><span class="level-css">focus-within</span><span class="level-minutes">40 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-              <a class="level-card" href="lesson.html?level=18" data-level-card="18">
-                <span class="level-index">18</span>
-                <span class="level-info">
-                  <strong>记账本项目</strong>
-                  <small><span>文件持久化 · 项目整合</span><span class="level-css">自动网格</span><span class="level-minutes">50 min</span></small>
-                </span>
-                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
-              </a>
-            </div>
-          </section>
         </div>
       </div>
     </section>

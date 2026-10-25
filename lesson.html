@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="小玩同学的Java学习站分级关卡：逐行拆解、可运行示例、动手挑战，并顺手学习 CSS。">
+  <meta name="theme-color" content="#f5efe3">
+  <title>第 1 关｜小玩同学的Java学习站</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("java-start-theme");
+        if (savedTheme === "night") {
+          document.documentElement.dataset.theme = "night";
+        }
+      } catch (error) { /* 隐私模式下忽略即可 */ }
+    }());
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23173b2b'/%3E%3Ctext x='50' y='71' font-family='monospace' font-size='62' font-weight='bold' text-anchor='middle' fill='%23e76f3c'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script src="chapters.js?v=12" defer></script>
+  <script src="script.js?v=12" defer></script>
+</head>
+<body class="lesson-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <noscript><div class="noscript-note">这一关的内容需要 JavaScript。请在浏览器里启用 JavaScript，或换一个现代浏览器打开。</div></noscript>
+  <div class="reading-progress" aria-hidden="true"><span id="readingBar"></span></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="返回小玩同学的Java学习站首页">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span class="brand-text">
+          <strong>小玩同学的Java学习站</strong>
+          <small>JAVA × CSS · 零基础</small>
+        </span>
+      </a>
+
+      <div class="header-progress" aria-hidden="true">
+        <span>学习进度</span>
+        <strong id="headerProgress">0 / 18</strong>
+      </div>
+
+      <nav class="header-nav" aria-label="页面导航">
+        <button class="course-menu-toggle" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu" aria-label="打开课程目录">
+          <span class="course-menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="course-menu-toggle-label">课程目录</span>
+        </button>
+        <a href="index.html#lab">CSS 实验室</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">切换深色模式</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="lesson-main">
+    <h1 class="visually-hidden" id="lessonPageHeading">小玩同学的Java学习站 · 分级关卡</h1>
+    <div class="lesson-crumb-wrap">
+      <nav class="lesson-crumb" aria-label="面包屑">
+        <a href="index.html">← 课程首页</a>
+        <span class="lesson-crumb-divider" aria-hidden="true">/</span>
+        <span id="lessonCrumb">第 01 关 / 18</span>
+      </nav>
+      <a class="lesson-crumb-lab" href="index.html#lab">CSS 实验室 <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="course-shell lesson-layout">
+      <aside class="course-sidebar">
+        <div class="sidebar-progress">
+          <div class="progress-orbit" id="progressOrbit" style="--p: 0;">
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="sidebar-progress-copy">
+            <p>你的进度</p>
+            <strong id="sidebarCount">0 / 18 关</strong>
+            <small>自动保存在本机</small>
+          </div>
+        </div>
+        <p class="sidebar-label">关卡导航</p>
+        <nav class="chapter-nav" id="chapterNav" aria-label="关卡导航"></nav>
+        <button class="sidebar-top" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">← 打开课程目录</button>
+      </aside>
+
+      <div class="course-main">
+        <div id="lessonRoot"></div>
+        <div class="lesson-after">
+          <p>学完这一关，记得点开本关卡片右上角的「标记完成」。进度会显示在首页和左侧导航里。</p>
+          <button class="lesson-after-link" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">打开课程目录，选下一关 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <p><strong>小玩同学的Java学习站</strong><br><span>用 Java 写逻辑，用 CSS 讲故事。</span></p>
+      </div>
+      <p class="footer-note">第 1—18 关 · 进度只保存在你的浏览器里</p>
+      <button class="footer-menu-link" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">课程目录 ↑</button>
+    </div>
+  </footer>
+
+  <!-- ============ 课程目录二级菜单 ============ -->
+  <div class="course-menu" id="courseMenu" hidden>
+    <div class="course-menu-scrim" data-course-menu-close></div>
+    <aside class="course-menu-panel" role="dialog" aria-modal="true" aria-labelledby="courseMenuTitle">
+      <header class="course-menu-head">
+        <div>
+          <p class="course-menu-kicker">COURSE MAP · 6 个阶段</p>
+          <h2 id="courseMenuTitle">课程目录</h2>
+          <p>18 个小关卡，可以按顺序学，也可以随时跳关复习。</p>
+        </div>
+        <button class="course-menu-close" type="button" data-course-menu-close aria-label="关闭课程目录">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+
+      <div class="course-menu-progress">
+        <div class="course-menu-progress-head">
+          <span>我的进度</span>
+          <strong id="courseMenuProgress">0 / 18 关</strong>
+        </div>
+        <div class="course-menu-track" aria-hidden="true"><span id="courseMenuBar"></span></div>
+        <p id="courseMenuNote">从第 1 关开始，先把第一个程序跑起来。</p>
+      </div>
+
+      <div class="course-menu-body" id="courseMenuBody"></div>
+
+      <footer class="course-menu-foot">
+        <a class="course-menu-start" id="courseMenuStart" href="lesson.html?level=01">
+          <span id="courseMenuStartLabel">从第 1 关开始</span>
+          <span class="course-menu-start-arrow" aria-hidden="true">→</span>
+        </a>
+        <p>进度只保存在当前浏览器 · 不需要登录</p>
+      </footer>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

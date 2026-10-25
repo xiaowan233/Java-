@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="小玩同学的 Java 学习站：18 个分级关卡、18 个代码任务，零基础手把手入门，同时学会 CSS 语法。">
+  <meta name="theme-color" content="#f5efe3">
+  <title>小玩同学的Java学习站｜18 关，从零到完整项目</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("java-start-theme");
+        if (savedTheme === "night") {
+          document.documentElement.dataset.theme = "night";
+        }
+      } catch (error) { /* 隐私模式下忽略即可 */ }
+    }());
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23173b2b'/%3E%3Ctext x='50' y='71' font-family='monospace' font-size='62' font-weight='bold' text-anchor='middle' fill='%23e76f3c'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script src="chapters.js?v=12" defer></script>
+  <script src="script.js?v=12" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <noscript><div class="noscript-note">这页的 18 关内容和互动练习需要 JavaScript。请在浏览器里启用 JavaScript，或换一个现代浏览器打开。</div></noscript>
+  <div class="reading-progress" aria-hidden="true"><span id="readingBar"></span></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="小玩同学的Java学习站首页">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span class="brand-text">
+          <strong>小玩同学的Java学习站</strong>
+          <small>JAVA × CSS · 零基础</small>
+        </span>
+      </a>
+
+      <div class="header-progress" aria-hidden="true">
+        <span>学习进度</span>
+        <strong id="headerProgress">0 / 18</strong>
+      </div>
+
+      <nav class="header-nav" aria-label="页面导航">
+        <button class="course-menu-toggle" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu" aria-label="打开课程目录">
+          <span class="course-menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="course-menu-toggle-label">课程目录</span>
+        </button>
+        <a href="#lab">CSS 实验室</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">切换深色模式</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>零基础 · 手把手 · Java + CSS 双线</p>
+        <h1>
+          <span class="title-line">把 Java，拆成</span>
+          <span class="title-line"><em>18</em>&nbsp;个能完成的小步。</span>
+        </h1>
+        <p class="hero-intro">
+          不用先啃完一本厚书，也不用一次记住所有语法。每一关都从一个
+          <strong>能运行的小程序</strong>开始：先看效果，再拆代码，最后亲手改。
+          学着学着，你还会顺手掌握页面背后的 CSS。
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="lesson.html?level=01">
+            从第 1 关开始
+            <span aria-hidden="true">↓</span>
+          </a>
+          <button class="text-link" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">
+            打开 18 关课程目录 <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <ul class="hero-meta" aria-label="课程概览">
+          <li><strong>18</strong> 个关卡</li>
+          <li><strong>18</strong> 个代码任务</li>
+          <li><strong>36</strong> 道输入题</li>
+          <li><strong>18</strong> 个 CSS 知识点</li>
+          <li><strong>≈10h</strong> 总时长</li>
+        </ul>
+      </div>
+
+      <div class="hero-stage" aria-label="HelloJava 程序示例">
+        <div class="hero-note note-class">
+          <span>01</span>
+          <p>一个文件<br>对应一个 public 类</p>
+        </div>
+
+        <div class="hero-window">
+          <div class="window-bar">
+            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="window-file">HelloJava.java</span>
+            <span class="window-badge">JAVA</span>
+          </div>
+          <ol class="hero-code">
+            <li><span class="tok-keyword">public</span> <span class="tok-keyword">class</span> <span class="tok-type">HelloJava</span> {</li>
+            <li>    <span class="tok-keyword">public</span> <span class="tok-keyword">static</span> <span class="tok-keyword">void</span> <span class="tok-function">main</span>(<span class="tok-type">String</span>[] args) {</li>
+            <li>        <span class="tok-type">String</span> name = <span class="tok-string">"小明"</span>;</li>
+            <li>        <span class="tok-type">System</span>.out.println(<span class="tok-string">"你好，"</span> + name + <span class="tok-string">"！"</span>);</li>
+            <li>    }</li>
+            <li>}</li>
+          </ol>
+          <div class="hero-terminal">
+            <span class="terminal-label">OUTPUT</span>
+            <code>你好，小明！</code><span class="terminal-cursor" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="hero-note note-css">
+          <span>CSS</span>
+          <code>color: #e76f3c;</code>
+        </div>
+        <div class="hero-stamp" aria-hidden="true">
+          <span>看 → 拆 → 改 → 做</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREP ============ -->
+    <section class="prep section-shell" id="prep">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker"><span>00</span> 开跑之前</p>
+          <h2>只需要准备三样东西。</h2>
+        </div>
+        <p class="section-side">装环境不是考试。跟着清单做，15 分钟就能开始写第一行 Java。</p>
+      </div>
+
+      <div class="prep-grid">
+        <article class="prep-card">
+          <div class="prep-card-top">
+            <span class="prep-icon" aria-hidden="true">◐</span>
+            <span class="prep-tag">现在就在用</span>
+          </div>
+          <h3>一个浏览器</h3>
+          <p>用来打开这份教程、阅读代码和玩 CSS 实验室。Chrome、Edge、Firefox 都可以。</p>
+          <p class="prep-note">课程内容和互动都在本地，离线也能看。</p>
+        </article>
+
+        <article class="prep-card">
+          <div class="prep-card-top">
+            <span class="prep-icon prep-icon-java" aria-hidden="true">J</span>
+            <span class="prep-tag">必需</span>
+          </div>
+          <h3>JDK 21 LTS</h3>
+          <p>JDK 是写 Java 的工具箱，里面包含编译器和运行环境。装 21 或更新的 LTS 都可以，本课以 21 为例。</p>
+          <a class="prep-link" href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">下载 Eclipse Temurin 21 <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="prep-card">
+          <div class="prep-card-top">
+            <span class="prep-icon" aria-hidden="true">{ }</span>
+            <span class="prep-tag">二选一</span>
+          </div>
+          <h3>一个写代码的地方</h3>
+          <p>新手推荐 IntelliJ IDEA 社区版；也可以使用 VS Code + Java 扩展。记事本理论上也行，但会很痛苦。</p>
+          <div class="prep-links">
+            <a class="prep-link" href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener noreferrer">IntelliJ IDEA <span aria-hidden="true">↗</span></a>
+            <a class="prep-link" href="https://code.visualstudio.com/docs/java/java-tutorial" target="_blank" rel="noopener noreferrer">VS Code Java <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <details class="setup-details">
+        <summary>
+          <span>Windows 安装逐点清单</span>
+          <small>点开，照着做 · 约 15 分钟</small>
+        </summary>
+        <div class="setup-body">
+          <ol class="setup-steps">
+            <li><strong>下载 JDK 21。</strong>打开 <a href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">adoptium.net</a>，在 Releases 里选 JDK 21，Operating System 选 Windows，Architecture 选 x64，Package Type 选 JDK，下载 .msi 安装包。</li>
+            <li><strong>安装。</strong>双击安装包，保持默认选项；在功能选择页勾选 <code>Set JAVA_HOME variable</code> 和 <code>Add to PATH</code>，然后 Install。</li>
+            <li><strong>验证。</strong>关闭旧终端，重新打开 PowerShell，依次执行 <code>java -version</code> 和 <code>javac -version</code>。两个都能显示版本号就成功。</li>
+            <li><strong>安装编辑器。</strong>下载 IntelliJ IDEA Community，安装时一路默认。第一次打开选择 New Project，Language 选 Java，JDK 选刚装好的 21。</li>
+            <li><strong>创建第一段代码。</strong>在项目左侧展开 <code>src</code>，右键 → New → Java Class，输入 <code>HelloJava</code>；把第 1 关的代码粘进去，点击绿色三角运行。</li>
+          </ol>
+          <p class="setup-note">macOS 用户下载 .pkg 后按默认步骤安装即可；如果使用 VS Code，请先安装 Extension Pack for Java，再新建 <code>HelloJava.java</code>。安装路径里尽量避开中文和空格。</p>
+        </div>
+      </details>
+
+      <div class="verify-card">
+        <div class="verify-copy">
+          <p class="section-kicker"><span>CHECK</span> 装好之后</p>
+          <h3>打开终端，验证两行命令。</h3>
+          <p>Windows 可以搜索「PowerShell」；macOS 打开「终端」。都能看到版本号，就说明 JDK 准备完毕。</p>
+          <p class="tiny-note">如果 <code>java</code> 有版本但 <code>javac</code> 找不到，通常是只装了运行环境 JRE，而不是完整的 JDK。</p>
+        </div>
+        <div class="mini-terminal" aria-label="终端验证命令">
+          <div class="mini-terminal-bar">
+            <span class="mini-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            终端 / PowerShell
+          </div>
+          <pre><span class="shell-prompt">$</span> java -version
+<span class="shell-prompt">$</span> javac -version
+<span class="shell-ok">javac 21.0.5</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COURSE ENTRY ============ -->
+    <section class="course-levels section-shell" id="course">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker"><span>COURSE MAP</span> 学习路线</p>
+          <h2>18 关，都收进课程菜单里。</h2>
+        </div>
+        <p class="section-side">首页不再铺满关卡。点右上角的「课程目录」，六个阶段、18 个关卡会从右侧展开，随时跳关或复习。这里只留下你的进度和继续入口。</p>
+      </div>
+
+      <div class="course-dashboard">
+        <div class="dashboard-top">
+          <div class="dashboard-progress">
+            <div class="dashboard-progress-head">
+              <span>YOUR PROGRESS</span>
+              <strong id="homeProgress">0 / 18 关</strong>
+            </div>
+            <div class="dashboard-track" aria-hidden="true"><span id="homeProgressBar"></span></div>
+            <p id="homeProgressNote">从第 1 关开始，先把第一个程序跑起来。</p>
+            <button class="dashboard-menu-link" type="button" data-course-menu-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="courseMenu">
+              打开完整课程目录 <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <a class="dashboard-cta" id="continueBtn" href="lesson.html?level=01">
+            <span id="continueLabel">从第 1 关开始</span>
+            <span class="dashboard-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="phase-groups" hidden>
+          <section class="phase-group" aria-labelledby="phase-title-1">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 01</span>
+              <h3 id="phase-title-1">语法地基</h3>
+              <span class="phase-group-count" data-phase-count="1">0 / 5</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=01" data-level-card="1">
+                <span class="level-index">01</span>
+                <span class="level-info">
+                  <strong>Hello, Java</strong>
+                  <small><span>类 · main · 输出</span><span class="level-css">CSS 规则</span><span class="level-minutes">25 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=02" data-level-card="2">
+                <span class="level-index">02</span>
+                <span class="level-info">
+                  <strong>变量与类型</strong>
+                  <small><span>变量 · 类型 · 拼接</span><span class="level-css">CSS 变量</span><span class="level-minutes">25 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=03" data-level-card="3">
+                <span class="level-index">03</span>
+                <span class="level-info">
+                  <strong>输入与运算符</strong>
+                  <small><span>Scanner · 算术 · 类型转换</span><span class="level-css">CSS 盒模型</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=04" data-level-card="4">
+                <span class="level-index">04</span>
+                <span class="level-info">
+                  <strong>条件判断</strong>
+                  <small><span>if / else · 比较 · 逻辑</span><span class="level-css">文字排版</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=05" data-level-card="5">
+                <span class="level-index">05</span>
+                <span class="level-info">
+                  <strong>循环</strong>
+                  <small><span>for · while · break</span><span class="level-css">hover 过渡</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="phase-group" aria-labelledby="phase-title-2">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 02</span>
+              <h3 id="phase-title-2">组织代码</h3>
+              <span class="phase-group-count" data-phase-count="2">0 / 2</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=06" data-level-card="6">
+                <span class="level-index">06</span>
+                <span class="level-info">
+                  <strong>数组</strong>
+                  <small><span>索引 · 遍历 · 增强 for</span><span class="level-css">Flexbox</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=07" data-level-card="7">
+                <span class="level-index">07</span>
+                <span class="level-info">
+                  <strong>方法</strong>
+                  <small><span>参数 · 返回值 · 作用域</span><span class="level-css">Grid</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="phase-group" aria-labelledby="phase-title-3">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 03</span>
+              <h3 id="phase-title-3">面向对象</h3>
+              <span class="phase-group-count" data-phase-count="3">0 / 3</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=08" data-level-card="8">
+                <span class="level-index">08</span>
+                <span class="level-info">
+                  <strong>类与对象</strong>
+                  <small><span>字段 · 构造方法 · this</span><span class="level-css">class 选择器</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=09" data-level-card="9">
+                <span class="level-index">09</span>
+                <span class="level-info">
+                  <strong>封装与继承</strong>
+                  <small><span>private · extends · 多态</span><span class="level-css">层叠优先级</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=10" data-level-card="10">
+                <span class="level-index">10</span>
+                <span class="level-info">
+                  <strong>集合</strong>
+                  <small><span>ArrayList · HashMap · 泛型</span><span class="level-css">响应式</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="phase-group" aria-labelledby="phase-title-4">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 04</span>
+              <h3 id="phase-title-4">做出东西</h3>
+              <span class="phase-group-count" data-phase-count="4">0 / 2</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=11" data-level-card="11">
+                <span class="level-index">11</span>
+                <span class="level-info">
+                  <strong>异常与调试</strong>
+                  <small><span>try-catch · finally · 调试</span><span class="level-css">关键帧动画</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=12" data-level-card="12">
+                <span class="level-index">12</span>
+                <span class="level-info">
+                  <strong>待办清单项目</strong>
+                  <small><span>综合项目 · 实战</span><span class="level-css">主题变量</span><span class="level-minutes">50 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="phase-group" aria-labelledby="phase-title-5">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 05</span>
+              <h3 id="phase-title-5">进阶表达</h3>
+              <span class="phase-group-count" data-phase-count="5">0 / 4</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=13" data-level-card="13">
+                <span class="level-index">13</span>
+                <span class="level-info">
+                  <strong>字符串与文本</strong>
+                  <small><span>String · trim · equals</span><span class="level-css">文本省略</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=14" data-level-card="14">
+                <span class="level-index">14</span>
+                <span class="level-info">
+                  <strong>接口与多态</strong>
+                  <small><span>interface · implements</span><span class="level-css">伪元素</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=15" data-level-card="15">
+                <span class="level-index">15</span>
+                <span class="level-info">
+                  <strong>枚举与 switch</strong>
+                  <small><span>enum · 箭头 switch</span><span class="level-css">sticky 定位</span><span class="level-minutes">30 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=16" data-level-card="16">
+                <span class="level-index">16</span>
+                <span class="level-info">
+                  <strong>泛型与 Set</strong>
+                  <small><span>泛型 · HashSet · 去重</span><span class="level-css">clamp 函数</span><span class="level-minutes">35 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="phase-group" aria-labelledby="phase-title-6">
+            <div class="phase-group-head">
+              <span class="phase-group-no">阶段 06</span>
+              <h3 id="phase-title-6">文件与项目</h3>
+              <span class="phase-group-count" data-phase-count="6">0 / 2</span>
+            </div>
+            <div class="level-grid">
+              <a class="level-card" href="lesson.html?level=17" data-level-card="17">
+                <span class="level-index">17</span>
+                <span class="level-info">
+                  <strong>文件读写</strong>
+                  <small><span>Path · Files · IOException</span><span class="level-css">focus-within</span><span class="level-minutes">40 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+              <a class="level-card" href="lesson.html?level=18" data-level-card="18">
+                <span class="level-index">18</span>
+                <span class="level-info">
+                  <strong>记账本项目</strong>
+                  <small><span>文件持久化 · 项目整合</span><span class="level-css">自动网格</span><span class="level-minutes">50 min</span></small>
+                </span>
+                <span class="level-state" aria-hidden="true"><span class="level-check">✓</span><span class="level-arrow">→</span></span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS LAB ============ -->
+    <section class="lab-section" id="lab">
+      <div class="lab-heading">
+        <div>
+          <p class="lab-kicker">CSS PLAYGROUND</p>
+          <h2>改一行，<br>立刻看见变化。</h2>
+        </div>
+        <div class="lab-intro">
+          <p>左边是一段真正的 CSS，右边是它的效果。试着把 <code>#e76f3c</code> 换掉、把圆角调大，或者给按钮加阴影。</p>
+          <p>不需要保存，也不会弄坏这个页面。CSS 最适合这样学：先改，再观察，再理解。</p>
+        </div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="lab-editor-panel">
+          <div class="lab-toolbar">
+            <span class="lab-file"><i aria-hidden="true"></i>style.css</span>
+            <div class="lab-presets" role="group" aria-label="CSS 示例预设">
+              <button type="button" data-preset="warm">暖卡</button>
+              <button type="button" data-preset="neon">霓虹</button>
+              <button type="button" data-preset="editorial">杂志</button>
+            </div>
+          </div>
+          <textarea id="cssEditor" spellcheck="false" aria-label="编辑 CSS 代码">.lab-card {
+  padding: 28px;
+  border: 2px solid #173b2b;
+  border-radius: 24px;
+  background: #fff8e8;
+  color: #173b2b;
+  font-family: system-ui, sans-serif;
+}
+
+.lab-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e76f3c;
+  color: #fff8e8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.lab-title {
+  margin: 16px 0 8px;
+  font-size: 28px;
+}
+
+.lab-btn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #173b2b;
+  color: #fff8e8;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.lab-btn:hover {
+  transform: translateY(-3px);
+}</textarea>
+          <div class="lab-footer">
+            <span>只改 CSS，不改 HTML 结构</span>
+            <button type="button" id="resetLab">重置代码</button>
+          </div>
+        </div>
+
+        <div class="lab-preview-panel">
+          <div class="lab-preview-bar">
+            <span><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i></span>
+            <strong>实时预览</strong>
+            <em><i aria-hidden="true"></i>LIVE</em>
+          </div>
+          <iframe id="labPreview" title="CSS 实时预览"></iframe>
+        </div>
+      </div>
+
+      <div class="cheat-sheet">
+        <article class="cheat-card">
+          <p class="cheat-num">01 / 规则</p>
+          <h3>选择器 + 声明块</h3>
+          <div class="anatomy">
+            <code><span class="anatomy-selector">.card</span> {<br>&nbsp;&nbsp;<span class="anatomy-property">color</span>: <span class="anatomy-value">#173b2b</span>;<br>}</code>
+            <div class="anatomy-labels" aria-hidden="true">
+              <span>选择器：给谁</span>
+              <span>属性：改什么</span>
+              <span>值：改成什么</span>
+            </div>
+          </div>
+          <p>每条声明都以分号结尾；注释写成 <code>/* 说明 */</code>，浏览器会忽略它。</p>
+        </article>
+
+        <article class="cheat-card">
+          <p class="cheat-num">02 / 常用属性</p>
+          <h3>先记住这 10 个</h3>
+          <ul class="cheat-list">
+            <li><code>color</code><span>文字颜色</span></li>
+            <li><code>background</code><span>背景</span></li>
+            <li><code>padding</code><span>内边距</span></li>
+            <li><code>margin</code><span>外边距</span></li>
+            <li><code>border</code><span>边框</span></li>
+            <li><code>border-radius</code><span>圆角</span></li>
+            <li><code>font-size</code><span>字号</span></li>
+            <li><code>display</code><span>布局方式</span></li>
+            <li><code>gap</code><span>项目间距</span></li>
+            <li><code>transition</code><span>过渡动画</span></li>
+          </ul>
+        </article>
+
+        <article class="cheat-card">
+          <p class="cheat-num">03 / 选择器</p>
+          <h3>精准点名</h3>
+          <ul class="cheat-list cheat-list-code">
+            <li><code>p</code><span>所有 p 标签</span></li>
+            <li><code>.card</code><span>class 为 card</span></li>
+            <li><code>#hero</code><span>id 为 hero</span></li>
+            <li><code>.card p</code><span>card 里面的 p</span></li>
+            <li><code>.card:hover</code><span>鼠标悬停时</span></li>
+            <li><code>@media</code><span>按屏幕宽度适配</span></li>
+          </ul>
+          <p class="cheat-note">class 可以复用；id 在一页中应当唯一。</p>
+        </article>
+      </div>
+      <p class="lab-footnote">这个页面的样式就写在 <code>styles.css</code> 里。学完前十关，打开它，你会认出大部分规则。</p>
+    </section>
+
+    <!-- ============ FINISH ============ -->
+    <section class="finish section-shell" id="finish">
+      <div class="finish-lead">
+        <p class="section-kicker"><span>AFTER 18</span> 通关之后</p>
+        <h2>你已经不是<br>「完全不会」了。</h2>
+        <p>你知道了程序如何开始、数据如何流动、代码如何被组织成类和方法，也亲手做过待办清单和记账本两个能运行的项目。接下来，缺的只是更多次的重复。</p>
+        <a class="button button-primary" href="lesson.html?level=01">回去复习第 1 关 <span aria-hidden="true">↑</span></a>
+      </div>
+
+      <div class="finish-next">
+        <article class="next-card">
+          <span class="next-num">NEXT / 01</span>
+          <h3>把两个项目继续升级</h3>
+          <p>给账本增加删除、分类和统计，把待办加入完成状态，再试着用接口和文件持久化重构它们。</p>
+        </article>
+        <article class="next-card">
+          <span class="next-num">NEXT / 02</span>
+          <h3>补上 Java 的核心拼图</h3>
+          <p>Lambda、Stream、多线程、JDBC 与数据库。在能写出完整小程序之后，再学这些会顺很多。</p>
+        </article>
+        <article class="next-card">
+          <span class="next-num">NEXT / 03</span>
+          <h3>让 CSS 也变成工具</h3>
+          <p>学 Grid 进阶、响应式图片、可访问性与组件化。把每次练习的界面都亲手写一遍。</p>
+        </article>
+        <p class="finish-note">别急着追框架。先把「变量、条件、循环、方法、对象」用到不需要想，才是真正的提速。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <p><strong>小玩同学的Java学习站</strong><br><span>用 Java 写逻辑，用 CSS 讲故事。</span></p>
+      </div>
+      <p class="footer-note">为初学者而写 · 进度只保存在你的浏览器里 · 代码要亲手敲</p>
+      <a href="#top">回到顶部 ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ 课程目录二级菜单 ============ -->
+  <div class="course-menu" id="courseMenu" hidden>
+    <div class="course-menu-scrim" data-course-menu-close></div>
+    <aside class="course-menu-panel" role="dialog" aria-modal="true" aria-labelledby="courseMenuTitle">
+      <header class="course-menu-head">
+        <div>
+          <p class="course-menu-kicker">COURSE MAP · 6 个阶段</p>
+          <h2 id="courseMenuTitle">课程目录</h2>
+          <p>18 个小关卡，可以按顺序学，也可以随时跳关复习。</p>
+        </div>
+        <button class="course-menu-close" type="button" data-course-menu-close aria-label="关闭课程目录">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+
+      <div class="course-menu-progress">
+        <div class="course-menu-progress-head">
+          <span>我的进度</span>
+          <strong id="courseMenuProgress">0 / 18 关</strong>
+        </div>
+        <div class="course-menu-track" aria-hidden="true"><span id="courseMenuBar"></span></div>
+        <p id="courseMenuNote">从第 1 关开始，先把第一个程序跑起来。</p>
+      </div>
+
+      <div class="course-menu-body" id="courseMenuBody"></div>
+
+      <footer class="course-menu-foot">
+        <a class="course-menu-start" id="courseMenuStart" href="lesson.html?level=01">
+          <span id="courseMenuStartLabel">从第 1 关开始</span>
+          <span class="course-menu-start-arrow" aria-hidden="true">→</span>
+        </a>
+        <p>进度只保存在当前浏览器 · 不需要登录</p>
+      </footer>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

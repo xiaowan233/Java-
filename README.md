@@ -119,4 +119,4 @@ script.js
 
 ## 试用网页
 
-[小玩同学的Java学习站](http://study.xiawan233.top)
+[小玩同学的Java学习站](http://study.xiaowan233.top)
